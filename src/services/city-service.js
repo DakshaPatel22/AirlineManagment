@@ -56,6 +56,17 @@ catch(error){
 
 }
     }
-    
+    async getAllCities(filter)
+    {
+        try{ const cities=await this.cityRepo.getAllCities({name: filter.name});
+            return cities;
+
+        }
+        catch(error){
+    console.log("Something went wrong at service layer");
+    throw { error};
+
+}
+    }
 }
 module.exports = CityService;
